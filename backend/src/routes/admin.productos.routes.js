@@ -16,6 +16,7 @@ const {
   cambiarEstadoController,
   listarProductosController,
   crearProductoUploadController,
+  eliminarProductoController,
 } = require("../controllers/admin.productos.controller.js");
 
 // Middlewares de seguridad
@@ -44,5 +45,8 @@ router.put("/productos/:id", auth, adminOnly, actualizarProductoController);
 
 // Cambiar estado del producto (activar/desactivar)
 router.patch("/productos/:id/estado", auth, adminOnly, cambiarEstadoController);
+
+// Eliminar producto
+router.delete("/productos/:id", auth, adminOnly, eliminarProductoController);
 
 module.exports = router;

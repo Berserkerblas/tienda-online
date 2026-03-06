@@ -374,6 +374,15 @@
   background-color: #d68910;
 }
 
+.admin-productos-table-btn-delete {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.admin-productos-table-btn-delete:hover {
+  background-color: #c0392b;
+}
+
 .admin-productos-empty {
   text-align: center;
   padding: 40px 20px;
