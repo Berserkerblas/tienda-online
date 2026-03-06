@@ -1,0 +1,14 @@
+# Railway Deployment Configuration
+# Este archivo le indica a Railway cómo construir y desplegar el backend
+
+[phases.setup]
+nixPkgs = ["nodejs", "mysql80"]
+
+[phases.install]
+cmds = ["npm ci"]
+
+[phases.build]
+cmds = ["echo 'No build needed for backend'"]
+
+[start]
+cmd = "npm start"

@@ -1,0 +1,374 @@
+{
+  "info": {
+    "name": "Tienda API - Colección Completa",
+    "description": "Colección de endpoints para probar el backend de la tienda (autenticación, productos, pedidos, admin)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "AUTENTICACIÓN",
+      "description": "Endpoints de registro, login y datos del usuario",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/auth/ping",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "ping"]
+            },
+            "description": "Verifica que las rutas de autenticación funcionan"
+          },
+          "response": []
+        },
+        {
+          "name": "Register - Crear Usuario",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Juan Pérez\",\n  \"email\": \"juan@example.com\",\n  \"password\": \"Password123\",\n  \"telefono\": \"1234567890\",\n  \"direccion\": \"Calle Principal 123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "register"]
+            },
+            "description": "Registra un nuevo usuario. Guarda el email y password para login después."
+          },
+          "response": []
+        },
+        {
+          "name": "Login - Obtener Token",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "if (pm.response.code === 200) {",
+                  "  var jsonData = pm.response.json();",
+                  "  pm.environment.set('token', jsonData.token);",
+                  "  console.log('Token guardado: ' + jsonData.token);",
+                  "}"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"juan@example.com\",\n  \"password\": \"Password123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "login"]
+            },
+            "description": "Login del usuario. Retorna un token JWT que se guarda automáticamente en la variable 'token' del entorno."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Me - Datos del Usuario",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/me",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "me"]
+            },
+            "description": "Obtiene los datos del usuario autenticado. Requiere token JWT válido."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "PRODUCTOS (Públicos)",
+      "description": "Endpoints públicos para ver productos - NO requieren autenticación",
+      "item": [
+        {
+          "name": "Listar Todos los Productos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/productos",
+              "host": ["{{base_url}}"],
+              "path": ["productos"]
+            },
+            "description": "Obtiene la lista de todos los productos disponibles"
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener Detalle de Producto",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/productos/1",
+              "host": ["{{base_url}}"],
+              "path": ["productos", "1"]
+            },
+            "description": "Obtiene los detalles de un producto específico por ID. Cambiar el '1' por el ID del producto que quieras consultar."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "PEDIDOS (Protegidos)",
+      "description": "Endpoints para gestionar pedidos del usuario - Requieren autenticación",
+      "item": [
+        {
+          "name": "Crear Nuevo Pedido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productos\": [\n    {\n      \"id\": 1,\n      \"cantidad\": 2,\n      \"precio\": 29.99\n    },\n    {\n      \"id\": 2,\n      \"cantidad\": 1,\n      \"precio\": 49.99\n    }\n  ],\n  \"total\": 109.97,\n  \"estado\": \"pendiente\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pedidos",
+              "host": ["{{base_url}}"],
+              "path": ["pedidos"]
+            },
+            "description": "Crea un nuevo pedido. Requiere autenticación (token JWT)."
+          },
+          "response": []
+        },
+        {
+          "name": "Listar Mis Pedidos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pedidos",
+              "host": ["{{base_url}}"],
+              "path": ["pedidos"]
+            },
+            "description": "Obtiene todos los pedidos del usuario autenticado"
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener Detalle de Pedido",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pedidos/1",
+              "host": ["{{base_url}}"],
+              "path": ["pedidos", "1"]
+            },
+            "description": "Obtiene el detalle de un pedido específico. Cambiar el '1' por el ID del pedido."
+          },
+          "response": []
+        },
+        {
+          "name": "Descargar Ticket PDF",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pedidos/1/ticket",
+              "host": ["{{base_url}}"],
+              "path": ["pedidos", "1", "ticket"]
+            },
+            "description": "Descarga el ticket PDF de un pedido. Cambiar el '1' por el ID del pedido."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ADMIN - Gestión de Productos",
+      "description": "Endpoints de administración - Requieren autenticación + rol de admin",
+      "item": [
+        {
+          "name": "Listar Productos (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/admin/productos?estado=activo&pagina=1&limite=10",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "productos"],
+              "query": [
+                {
+                  "key": "estado",
+                  "value": "activo",
+                  "description": "Filtro: activo, inactivo, o todos"
+                },
+                {
+                  "key": "pagina",
+                  "value": "1",
+                  "description": "Número de página para paginación"
+                },
+                {
+                  "key": "limite",
+                  "value": "10",
+                  "description": "Productos por página"
+                }
+              ]
+            },
+            "description": "Lista todos los productos (activos e inactivos) - Solo para admins"
+          },
+          "response": []
+        },
+        {
+          "name": "Crear Nuevo Producto",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Producto Test\",\n  \"descripcion\": \"Descripción del producto de prueba\",\n  \"precio\": 99.99,\n  \"stock\": 50,\n  \"categoria\": \"electrónica\",\n  \"imagen\": \"test-product.jpg\",\n  \"estado\": \"activo\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/admin/productos",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "productos"]
+            },
+            "description": "Crea un nuevo producto. Solo para admins."
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar Producto",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Producto Actualizado\",\n  \"descripcion\": \"Descripción actualizada\",\n  \"precio\": 129.99,\n  \"stock\": 75,\n  \"categoria\": \"electrónica\",\n  \"imagen\": \"updated-product.jpg\",\n  \"estado\": \"activo\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/admin/productos/1",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "productos", "1"]
+            },
+            "description": "Actualiza un producto completo. Cambiar el '1' por el ID del producto. Solo para admins."
+          },
+          "response": []
+        },
+        {
+          "name": "Cambiar Estado Producto",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estado\": \"inactivo\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/admin/productos/1/estado",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "productos", "1", "estado"]
+            },
+            "description": "Activa o desactiva un producto. Cambiar el '1' por el ID del producto. Solo para admins."
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ]
+}

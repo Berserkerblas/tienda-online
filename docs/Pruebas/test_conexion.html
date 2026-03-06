@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Conexión Frontend-Backend</title>
+    <style>
+        body { font-family: Arial; padding: 20px; background: #f0f0f0; }
+        .test { background: white; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .success { border-left: 4px solid green; }
+        .error { border-left: 4px solid red; }
+        code { background: #f5f5f5; padding: 2px 5px; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Test de Conexión Frontend → Backend</h1>
+    
+    <div id="results"></div>
+
+    <script>
+        const resultsDiv = document.getElementById('results');
+
+        async function testConnections() {
+            const tests = [
+                {
+                    name: 'Backend Health Check',
+                    url: 'http://localhost:3000/health',
+                    method: 'GET'
+                },
+                {
+                    name: 'Auth Ping',
+                    url: 'http://localhost:3000/auth/ping',
+                    method: 'GET'
+                },
+                {
+                    name: 'Listar Productos',
+                    url: 'http://localhost:3000/productos',
+                    method: 'GET'
+                }
+            ];
+
+            for (const test of tests) {
+                try {
+                    const response = await fetch(test.url, {
+                        method: test.method,
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+
+                    const data = await response.json();
+                    
+                    const div = document.createElement('div');
+                    div.className = 'test success';
+                    div.innerHTML = `
+                        <strong>✅ ${test.name}</strong><br>
+                        URL: <code>${test.url}</code><br>
+                        Status: ${response.status}<br>
+                        Response: <pre>${JSON.stringify(data, null, 2)}</pre>
+                    `;
+                    resultsDiv.appendChild(div);
+
+                } catch (error) {
+                    const div = document.createElement('div');
+                    div.className = 'test error';
+                    div.innerHTML = `
+                        <strong>❌ ${test.name}</strong><br>
+                        URL: <code>${test.url}</code><br>
+                        Error: ${error.message}
+                    `;
+                    resultsDiv.appendChild(div);
+                }
+            }
+        }
+
+        testConnections();
+    </script>
+</body>
+</html>

@@ -1,0 +1,380 @@
+/* MisPedidosPage.css */
+
+.mispedidos-main {
+  padding: 2rem 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  min-height: calc(100vh - 160px);
+}
+
+.mispedidos-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 2rem 0;
+  border-bottom: 3px solid #4a90e2;
+  padding-bottom: 0.5rem;
+}
+
+.mispedidos-loading,
+.mispedidos-error {
+  padding: 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.mispedidos-loading {
+  color: #4a90e2;
+  background-color: rgba(74, 144, 226, 0.05);
+  border: 1px solid rgba(74, 144, 226, 0.2);
+}
+
+.mispedidos-error {
+  color: #d32f2f;
+  background-color: rgba(211, 47, 47, 0.05);
+  border: 1px solid rgba(211, 47, 47, 0.2);
+}
+
+.mispedidos-vacio {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: #f8f8f8;
+  border-radius: 12px;
+  color: #666;
+}
+
+.mispedidos-vacio > p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.mispedidos-vacio > a {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.mispedidos-vacio > a:hover {
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Lista de pedidos */
+.mispedidos-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.mispedidos-pagination {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.mispedidos-pagination-btn {
+  padding: 0.55rem 1rem;
+  background: #fff;
+  color: #1a1a1a;
+  border: 1px solid #d8d8d8;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mispedidos-pagination-btn:hover:not(:disabled) {
+  border-color: #4a90e2;
+  color: #4a90e2;
+}
+
+.mispedidos-pagination-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.mispedidos-pagination-info {
+  font-size: 0.95rem;
+  color: #555;
+  font-weight: 600;
+}
+
+.mispedidos-card {
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.mispedidos-card:hover {
+  border-color: #4a90e2;
+  box-shadow: 0 4px 16px rgba(74, 144, 226, 0.15);
+}
+
+.mispedidos-card-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: #f8f8f8;
+  border-bottom: 2px solid #e0e0e0;
+  align-items: center;
+}
+
+.mispedidos-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.mispedidos-card-titulo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.mispedidos-card-numero {
+  color: #4a90e2;
+  font-weight: 600;
+}
+
+.mispedidos-card-fecha {
+  font-size: 0.9rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mispedidos-card-estado {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.mispedidos-card-estado.pendiente {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.mispedidos-card-estado.procesando {
+  background: #cfe2ff;
+  color: #084298;
+}
+
+.mispedidos-card-estado.enviado {
+  background: #d1e7dd;
+  color: #0f5132;
+}
+
+.mispedidos-card-estado.entregado {
+  background: #d1e7dd;
+  color: #0f5132;
+}
+
+.mispedidos-card-estado.cancelado {
+  background: #f8d7da;
+  color: #842029;
+}
+
+.mispedidos-card-acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: flex-end;
+}
+
+.mispedidos-card-total {
+  text-align: right;
+}
+
+.mispedidos-card-total-label {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.mispedidos-card-total-valor {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #4a90e2;
+}
+
+.mispedidos-card-link {
+  padding: 0.6rem 1.4rem;
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.mispedidos-card-link:hover {
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+  transform: translateY(-2px);
+}
+
+.mispedidos-card-link:active {
+  transform: translateY(0);
+}
+
+/* Contenido de líneas (opcional, si se expande) */
+.mispedidos-card-body {
+  padding: 1.5rem;
+}
+
+.mispedidos-card-lineas {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mispedidos-linea {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f8f8f8;
+  border-radius: 8px;
+  border-left: 4px solid #4a90e2;
+}
+
+.mispedidos-linea-info {
+  flex: 1;
+}
+
+.mispedidos-linea-producto {
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.4rem;
+}
+
+.mispedidos-linea-cantidad {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.mispedidos-linea-subtotal {
+  font-weight: 700;
+  color: #4a90e2;
+  text-align: right;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mispedidos-main {
+    padding: 1.5rem 1rem;
+  }
+
+  .mispedidos-title {
+    font-size: 1.8rem;
+  }
+
+  .mispedidos-list {
+    grid-template-columns: 1fr;
+  }
+
+  .mispedidos-card-header {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .mispedidos-card-acciones {
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .mispedidos-card-total {
+    text-align: left;
+  }
+
+  .mispedidos-card-total-valor {
+    font-size: 1.3rem;
+  }
+
+  .mispedidos-card-link {
+    padding: 0.55rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .mispedidos-linea {
+    flex-direction: column;
+  }
+
+  .mispedidos-linea-subtotal {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .mispedidos-main {
+    padding: 1rem;
+    min-height: auto;
+  }
+
+  .mispedidos-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .mispedidos-card-header {
+    padding: 1.2rem;
+  }
+
+  .mispedidos-card-titulo {
+    font-size: 1.1rem;
+  }
+
+  .mispedidos-card-acciones {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .mispedidos-card-total {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mispedidos-card-total-valor {
+    font-size: 1.2rem;
+  }
+
+  .mispedidos-card-link {
+    width: 100%;
+    text-align: center;
+    padding: 0.7rem;
+  }
+
+  .mispedidos-vacio {
+    padding: 2rem 1rem;
+  }
+
+  .mispedidos-vacio > a {
+    width: 100%;
+    display: block;
+    padding: 0.75rem 1.5rem;
+  }
+}

@@ -1,0 +1,25 @@
+/* LayoutPublico.css */
+
+.layout-publico {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.layout-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.layout-publico.layout-home {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.layout-publico.layout-home .layout-content {
+  min-height: 0;
+  overflow: hidden;
+}

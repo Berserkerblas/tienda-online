@@ -1,0 +1,271 @@
+/* PedidoDetallePage.css */
+
+.pedido-detalle-main {
+  padding: 2rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pedido-detalle-back-link {
+  display: inline-block;
+  color: #4a90e2;
+  text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.pedido-detalle-back-link:hover {
+  color: #357abd;
+}
+
+.pedido-detalle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.pedido-detalle-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.pedido-detalle-numero {
+  color: #4a90e2;
+}
+
+.pedido-detalle-btn-ticket {
+  padding: 0.8rem 1.5rem;
+  background: white;
+  border: 2px solid #4a90e2;
+  color: #4a90e2;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pedido-detalle-btn-ticket:hover:not(:disabled) {
+  background: #4a90e2;
+  color: white;
+}
+
+.pedido-detalle-btn-ticket:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Info */
+.pedido-detalle-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: #f8f8f8;
+  border-radius: 8px;
+}
+
+.pedido-detalle-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.pedido-detalle-info-label {
+  font-weight: 600;
+  color: #666;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.pedido-detalle-info-valor {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.pedido-detalle-info-valor.total {
+  font-size: 1.4rem;
+  color: #4a90e2;
+}
+
+.pedido-detalle-error-ticket {
+  padding: 0.8rem;
+  background: #ffebee;
+  border: 2px solid #f44336;
+  border-radius: 6px;
+  color: #c62828;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+/* Líneas */
+.pedido-detalle-lineas-section {
+  margin-top: 2rem;
+}
+
+.pedido-detalle-lineas-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 1.2rem 0;
+}
+
+.pedido-detalle-lineas {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.pedido-detalle-linea {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: white;
+}
+
+.pedido-detalle-linea-info {
+  flex: 1;
+}
+
+.pedido-detalle-linea-nombre {
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 0.3rem 0;
+  font-size: 1rem;
+}
+
+.pedido-detalle-linea-cantidad {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.pedido-detalle-linea-cantidad-badge {
+  display: inline-block;
+  background: #f0f0f0;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.pedido-detalle-linea-precios {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.pedido-detalle-linea-precio-unitario {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.pedido-detalle-linea-precio-unitario-valor {
+  font-weight: 600;
+}
+
+.pedido-detalle-linea-subtotal {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #4a90e2;
+}
+
+.pedido-detalle-vacio {
+  text-align: center;
+  padding: 2rem;
+  background: #f8f8f8;
+  border-radius: 8px;
+  color: #666;
+}
+
+.pedido-detalle-loading,
+.pedido-detalle-error-page {
+  text-align: center;
+  padding: 2rem;
+}
+
+.pedido-detalle-error-page > a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.7rem 1.4rem;
+  background: #4a90e2;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.pedido-detalle-error-page > a:hover {
+  background: #357abd;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pedido-detalle-main {
+    padding: 1.5rem 1rem;
+  }
+
+  .pedido-detalle-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pedido-detalle-title {
+    font-size: 1.5rem;
+  }
+
+  .pedido-detalle-btn-ticket {
+    width: 100%;
+  }
+
+  .pedido-detalle-info {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .pedido-detalle-linea {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .pedido-detalle-linea-precios {
+    text-align: left;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 0.5rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .pedido-detalle-main {
+    padding: 1rem;
+  }
+
+  .pedido-detalle-title {
+    font-size: 1.3rem;
+  }
+
+  .pedido-detalle-info {
+    padding: 0.8rem;
+  }
+
+  .pedido-detalle-linea {
+    padding: 0.8rem;
+  }
+
+  .pedido-detalle-linea-nombre {
+    font-size: 0.95rem;
+  }
+}
