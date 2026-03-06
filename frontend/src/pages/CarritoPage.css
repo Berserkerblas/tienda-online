@@ -301,11 +301,12 @@
   }
 
   .carrito-checkout-link {
-    width: 100%;
+    width: auto;
     padding: 0.8rem 1rem;
     font-size: 0.95rem;
     min-height: 50px;
     flex: 0 0 auto;
+    align-self: center;
   }
 
   .carrito-vacio {
