@@ -128,7 +128,7 @@ export default function MisPedidosPage() {
                             to={`/mis-pedidos/${idPedido}`}
                             className="mispedidos-card-link"
                           >
-                            Ver detalle →
+                            Ver detalle
                           </Link>
                         </div>
                       </div>

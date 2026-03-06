@@ -204,7 +204,8 @@
   }
 
   .pedido-confirmado-link {
-    width: 100%;
-    padding: 14px 16px;
+    width: auto;
+    padding: 12px 24px;
+    font-size: 13px;
   }
 }

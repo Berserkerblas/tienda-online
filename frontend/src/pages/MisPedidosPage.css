@@ -453,11 +453,12 @@
   }
 
   .mispedidos-card-link {
-    width: 100%;
-    max-width: 100%;
-    padding: 0.7rem 1rem;
-    font-size: 0.85rem;
+    width: auto;
+    max-width: none;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.82rem;
     text-align: center;
+    align-self: flex-start;
   }
 
   .mispedidos-pagination-btn {

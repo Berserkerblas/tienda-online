@@ -306,6 +306,7 @@
     padding: 0.8rem 1rem;
     font-size: 0.95rem;
     min-height: 50px;
+    flex: 0 0 auto;
   }
 
   .carrito-vacio {

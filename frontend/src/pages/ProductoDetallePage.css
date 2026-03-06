@@ -350,6 +350,8 @@
     font-size: 1rem;
     padding: 0.7rem 0.8rem;
     border: 2px solid #ddd;
+    min-height: 52px;
+    box-sizing: border-box;
   }
 
   .detalle-btn-añadir {
