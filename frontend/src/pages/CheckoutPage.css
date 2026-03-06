@@ -340,6 +340,11 @@
     padding: 0.8rem;
     font-size: 0.9rem;
   }
+
+  .checkout-back-link {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
 }
 
 /* Scroll personalizado */

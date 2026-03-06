@@ -65,13 +65,3 @@ export async function crearProductoConArchivo(datosProducto, archivoFile) {
   const response = await api.post("/admin/productos/upload", formData);
   return response.data; // { id_producto, ... }
 }
-
-/**
- * DELETE /admin/productos/:id
- * Elimina un producto existente.
- * Requiere rol admin.
- */
-export async function eliminarProducto(idProducto) {
-  const response = await api.delete(`/admin/productos/${idProducto}`);
-  return response.data; // { id_producto, mensaje }
-}

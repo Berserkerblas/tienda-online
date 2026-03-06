@@ -192,8 +192,9 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  min-width: 40px;
+  min-width: 80px;
   text-align: center;
+  font-size: 0.9rem;
 }
 
 .productos-pagination-btn:hover:not(:disabled) {
@@ -279,16 +280,51 @@
     font-size: 1.5rem;
   }
 
-  .productos-grid {
-    grid-template-columns: 1fr;
+  .productos-filters-form {
+    padding: 1.2rem;
   }
 
   .productos-filters-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .productos-filter-label > label {
+    font-size: 0.9rem;
+  }
+
+  .productos-filter-input,
+  .productos-filter-select {
+    padding: 0.65rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .productos-btn-apply,
+  .productos-btn-clear {
+    padding: 0.65rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .productos-filter-checkbox-label {
+    font-size: 0.9rem;
+  }
+
+  .productos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .productos-pagination {
+    padding: 1rem;
+    gap: 6px;
   }
 
   .productos-pagination-btn {
-    padding: 0.5rem 0.6rem;
+    padding: 0.55rem 0.8rem;
+    font-size: 0.8rem;
+    min-width: 70px;
+  }
+
+  .productos-pagination-info {
     font-size: 0.85rem;
   }
 }

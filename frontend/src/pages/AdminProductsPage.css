@@ -374,15 +374,6 @@
   background-color: #d68910;
 }
 
-.admin-productos-table-btn-delete {
-  background-color: #e74c3c;
-  color: white;
-}
-
-.admin-productos-table-btn-delete:hover {
-  background-color: #c0392b;
-}
-
 .admin-productos-empty {
   text-align: center;
   padding: 40px 20px;
@@ -451,48 +442,85 @@
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .admin-productos-main {
-    padding: 24px 16px;
+    padding: 20px 12px;
   }
 
   .admin-productos-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 22px;
+    margin-bottom: 18px;
   }
 
   .admin-productos-form {
-    padding: 20px;
-    margin-bottom: 24px;
+    padding: 18px;
+    margin-bottom: 20px;
+  }
+
+  .admin-productos-form h2 {
+    font-size: 18px;
   }
 
   .admin-productos-form-group {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .admin-productos-form-control input,
+  .admin-productos-form-control select,
+  .admin-productos-form-control textarea {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+
+  .admin-productos-btn {
+    padding: 10px 18px;
+    font-size: 13px;
   }
 
   .admin-productos-filtros {
-    padding: 16px;
-    margin-bottom: 20px;
+    padding: 14px;
+    margin-bottom: 18px;
+  }
+
+  .admin-productos-filtros h2 {
+    font-size: 16px;
   }
 
   .admin-productos-filtros-controls {
     grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .admin-productos-filtros-control input,
+  .admin-productos-filtros-control select {
+    padding: 9px 11px;
+    font-size: 13px;
   }
 
   .admin-productos-filtros-buttons {
     flex-direction: column;
+    gap: 8px;
   }
 
   .admin-productos-filtros-btn {
     width: 100%;
+    padding: 9px 16px;
+    font-size: 13px;
   }
 
   .admin-productos-pagination {
     flex-wrap: wrap;
-    padding: 16px;
+    padding: 14px;
+    gap: 10px;
   }
 
   .admin-productos-pagination-btn {
-    padding: 8px 12px;
-    font-size: 12px;
+    padding: 8px 14px;
+    font-size: 13px;
+    min-width: 90px;
+  }
+
+  .admin-productos-pagination-info {
+    font-size: 13px;
   }
 
   /* Tabla responsive - scroll horizontal */
@@ -502,92 +530,154 @@
   }
 
   .admin-productos-table {
-    font-size: 11px;
-    min-width: 600px;
+    font-size: 12px;
+    min-width: 650px;
   }
 
   .admin-productos-table th,
   .admin-productos-table td {
-    padding: 8px 10px;
+    padding: 10px 12px;
   }
 
   .admin-productos-table-actions {
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
   }
 
   .admin-productos-table-btn {
-    padding: 6px 10px;
-    font-size: 10px;
+    padding: 7px 12px;
+    font-size: 11px;
     width: 100%;
-    min-width: 80px;
+    min-width: 85px;
   }
 }
 
 @media (max-width: 480px) {
   .admin-productos-main {
-    padding: 16px 12px;
+    padding: 14px 10px;
   }
 
   .admin-productos-h1 {
-    font-size: 20px;
-    margin-bottom: 16px;
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+
+  .admin-productos-alert {
+    padding: 10px 14px;
+    font-size: 12px;
   }
 
   .admin-productos-form {
-    padding: 16px;
+    padding: 14px;
   }
 
   .admin-productos-form h2 {
-    font-size: 18px;
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+
+  .admin-productos-form-group {
+    gap: 10px;
+  }
+
+  .admin-productos-form-control label {
+    font-size: 13px;
+  }
+
+  .admin-productos-form-control input,
+  .admin-productos-form-control select,
+  .admin-productos-form-control textarea {
+    padding: 9px 10px;
+    font-size: 13px;
+  }
+
+  .admin-productos-form-buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .admin-productos-btn {
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 13px;
   }
 
   .admin-productos-filtros {
     padding: 12px;
   }
 
-  .admin-productos-form-buttons,
-  .admin-productos-filtros-buttons {
-    flex-direction: column;
+  .admin-productos-filtros h2 {
+    font-size: 15px;
   }
 
-  .admin-productos-btn,
+  .admin-productos-filtros-controls {
+    gap: 8px;
+  }
+
+  .admin-productos-filtros-control label {
+    font-size: 12px;
+  }
+
+  .admin-productos-filtros-control input,
+  .admin-productos-filtros-control select {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .admin-productos-filtros-buttons {
+    flex-direction: column;
+    gap: 6px;
+  }
+
   .admin-productos-filtros-btn {
     width: 100%;
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+
+  .admin-productos-listado {
+    margin-top: 16px;
+  }
+
+  .admin-productos-listado h2 {
+    font-size: 16px;
+    padding: 14px 16px;
   }
 
   .admin-productos-table {
     font-size: 10px;
-    min-width: 550px;
+    min-width: 580px;
   }
 
   .admin-productos-table th,
   .admin-productos-table td {
-    padding: 6px 8px;
+    padding: 7px 9px;
   }
 
   .admin-productos-table-actions {
     flex-direction: column;
-    gap: 4px;
+    gap: 5px;
   }
 
   .admin-productos-table-btn {
     width: 100%;
-    padding: 5px 8px;
-    font-size: 9px;
-    min-width: 70px;
-  }
-
-  .admin-productos-alert {
-    padding: 12px 16px;
-    font-size: 12px;
+    padding: 6px 10px;
+    font-size: 10px;
+    min-width: 75px;
   }
 
   .admin-productos-pagination {
-    padding: 12px;
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .admin-productos-pagination-btn {
+    padding: 7px 12px;
+    font-size: 11px;
+    min-width: 80px;
   }
 
   .admin-productos-pagination-info {
-    font-size: 12px;
+    font-size: 11px;
   }
 }

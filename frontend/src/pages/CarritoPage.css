@@ -254,6 +254,33 @@
     font-size: 1.5rem;
   }
 
+  .carrito-checkout-link {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+
+  .carrito-btn-vaciar {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .carrito-item-imagen {
+    width: 120px;
+    height: 120px;
+  }
+}
+  }
+
+  .carrito-btn-vaciar {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .carrito-title {
+    font-size: 1.5rem;
+  }
+
   .carrito-item-imagen {
     width: 120px;
     height: 120px;

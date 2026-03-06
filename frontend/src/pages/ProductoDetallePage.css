@@ -299,10 +299,22 @@
 
   .detalle-acciones {
     padding: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .detalle-cantidad-label {
+    width: 100%;
   }
 
   .detalle-cantidad-input {
     width: 100%;
+  }
+
+  .detalle-btn-añadir {
+    width: 100%;
+    min-height: 50px;
+    font-size: 0.95rem;
   }
 
   .detalle-precio {

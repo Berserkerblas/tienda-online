@@ -10,7 +10,6 @@ const {
   cambiarEstado,
   listarProductos,
   crearProductoConArchivo,
-  eliminarProducto,
 } = require("../services/admin.productos.service.js");
 
 
@@ -131,24 +130,6 @@ const crearProductoUploadController = async (req, res) => {
 };
 
 
-// Función eliminarProductoController(req, res) controlador que elimina un producto (DELETE /admin/productos/:id)
-const eliminarProductoController = async (req, res) => {
-  try {
-    const id_producto = Number(req.params.id);
-    const resultado = await eliminarProducto(id_producto);
-    return res.status(200).json(resultado);
-  } catch (error) {
-    if (error instanceof ErrorAdminProductos) {
-      return res.status(error.codigoHTTP).json({
-        message: error.message,
-        detalle: error.detalle || undefined,
-      });
-    }
-    return res.status(500).json({ message: "Error interno del servidor" });
-  }
-};
-
-
 // Exporta todas las funciones controlador para que se puedan usar en las rutas y sean accesibles desde otros archivos
 module.exports = {
   crearProductoController,
@@ -156,5 +137,4 @@ module.exports = {
   cambiarEstadoController,
   listarProductosController,
   crearProductoUploadController,
-  eliminarProductoController,
 };

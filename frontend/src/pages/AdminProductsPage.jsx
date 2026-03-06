@@ -8,7 +8,6 @@ import {
   actualizarProducto,
   estadoProducto,
   crearProductoConArchivo,
-  eliminarProducto,
 } from "../services/admin.productos.service.js";
 import "./AdminProductsPage.css";
 
@@ -287,39 +286,6 @@ export default function AdminProductsPage() {
       console.error("Error cambiando estado", error);
       setErrorMsg(
         error.response?.data?.message || error.message || "Error cambiando estado."
-      );
-    }
-  }
-
-  async function handleEliminar(producto) {
-    limpiarMensajes();
-
-    const confirmar = window.confirm(
-      `⚠️ ¿Estás seguro de que quieres ELIMINAR permanentemente "${producto.nombre}"?\n\nEsta acción NO se puede deshacer.`
-    );
-
-    if (!confirmar) return;
-
-    try {
-      console.log('Intentando eliminar producto:', producto.id_producto);
-      const respuesta = await eliminarProducto(producto.id_producto);
-      console.log('Producto eliminado exitosamente:', respuesta);
-      
-      setOkMsg(`✓ Producto "${producto.nombre}" eliminado correctamente.`);
-      
-      // Si estamos en una página vacía tras eliminar, volver atrás
-      if (productos.length === 1 && pagina > 1) {
-        setPagina(pagina - 1);
-        await cargarProductos(pagina - 1, limite);
-      } else {
-        await cargarProductos(pagina, limite);
-      }
-    } catch (error) {
-      console.error("Error eliminando producto", error);
-      console.error("Detalles del error:", error.response);
-      
-      setErrorMsg(
-        error.response?.data?.message || error.message || "Error eliminando producto."
       );
     }
   }
@@ -636,13 +602,6 @@ export default function AdminProductsPage() {
                         onClick={() => toggleEstado(p)}
                       >
                         {p.activo ? "Desactivar" : "Activar"}
-                      </button>
-                      <button
-                        type="button"
-                        className="admin-productos-table-btn admin-productos-table-btn-delete"
-                        onClick={() => handleEliminar(p)}
-                      >
-                        🗑️ Eliminar
                       </button>
                     </div>
                   </td>

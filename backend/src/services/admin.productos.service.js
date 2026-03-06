@@ -325,35 +325,6 @@ async function listarProductos({ busqueda, id_categoria, activo, pagina = 1, lim
   }
 }
 
-// Función eliminarProducto - Elimina un producto de la base de datos.
-async function eliminarProducto(id_producto) {
-  if (!Number.isInteger(id_producto) || id_producto <= 0) {
-    throw new ErrorAdminProductos("ID de producto inválido.", 400);
-  }
-
-  const conexion = await conectarBBDD();
-
-  try {
-    const existe = await comprobarProductoExiste(conexion, id_producto);
-    if (!existe) {
-      throw new ErrorAdminProductos("Producto no encontrado.", 404);
-    }
-
-    // Eliminar el producto de la BD
-    await conexion.execute(
-      "DELETE FROM productos WHERE id_producto = ?",
-      [id_producto]
-    );
-
-    return { id_producto, mensaje: "Producto eliminado correctamente" };
-  } catch (error) {
-    if (error instanceof ErrorAdminProductos) throw error;
-    throw new ErrorAdminProductos("Error interno al eliminar el producto.", 500, error.message);
-  } finally {
-    await conexion.end();
-  }
-}
-
 // ================================================
 // FUNCIÓN: crearProductoConArchivo
 // ================================================
