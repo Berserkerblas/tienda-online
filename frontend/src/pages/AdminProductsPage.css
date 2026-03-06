@@ -439,137 +439,284 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Tablet */
-@media (min-width: 481px) and (max-width: 1024px) {
+/* ========================================
+   TARJETAS - Vista Móvil
+   ======================================== */
+
+/* Ocultar tarjetas en desktop, mostrar tabla */
+.admin-productos-cards {
+  display: none;
+}
+
+.admin-productos-table-wrapper {
+  display: block;
+}
+
+/* Estilos de las tarjetas */
+.admin-productos-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease;
+}
+
+.admin-productos-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.admin-productos-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.admin-productos-card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+  flex: 1;
+  line-height: 1.4;
+}
+
+.admin-productos-card-id {
+  font-size: 12px;
+  font-weight: 500;
+  color: #999;
+  background: #f5f5f5;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+
+.admin-productos-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.admin-productos-card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+}
+
+.admin-productos-card-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #666;
+}
+
+.admin-productos-card-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.admin-productos-card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.admin-productos-card-btn {
+  flex: 1;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.admin-productos-card-btn-edit {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.admin-productos-card-btn-edit:active {
+  background-color: #357abd;
+  transform: scale(0.98);
+}
+
+.admin-productos-card-btn-toggle {
+  background-color: #f39c12;
+  color: white;
+}
+
+.admin-productos-card-btn-toggle:active {
+  background-color: #d68910;
+  transform: scale(0.98);
+}
+
+/* ========================================
+   RESPONSIVE - Tablet (481px - 768px)
+   ======================================== */
+
+@media (max-width: 768px) {
   .admin-productos-main {
-    padding: 20px 12px;
+    padding: 20px 14px;
   }
 
   .admin-productos-h1 {
-    font-size: 22px;
-    margin-bottom: 18px;
+    font-size: 24px;
+    margin-bottom: 20px;
   }
 
+  .admin-productos-alert {
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+
+  /* Formulario */
   .admin-productos-form {
-    padding: 18px;
-    margin-bottom: 20px;
+    padding: 20px 16px;
+    margin-bottom: 24px;
   }
 
   .admin-productos-form h2 {
     font-size: 18px;
+    margin-bottom: 16px;
   }
 
   .admin-productos-form-group {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .admin-productos-form-control label {
+    font-size: 14px;
+    margin-bottom: 8px;
   }
 
   .admin-productos-form-control input,
   .admin-productos-form-control select,
   .admin-productos-form-control textarea {
-    padding: 10px 12px;
-    font-size: 14px;
+    padding: 12px 14px;
+    font-size: 15px; /* Más grande para móvil */
+  }
+
+  .admin-productos-form-buttons {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
   }
 
   .admin-productos-btn {
-    padding: 10px 18px;
-    font-size: 13px;
+    width: 100%;
+    padding: 14px 20px; /* Botones más grandes y táctiles */
+    font-size: 15px;
   }
 
+  /* Filtros */
   .admin-productos-filtros {
-    padding: 14px;
-    margin-bottom: 18px;
+    padding: 16px 14px;
+    margin-bottom: 20px;
   }
 
   .admin-productos-filtros h2 {
     font-size: 16px;
+    margin-bottom: 14px;
   }
 
   .admin-productos-filtros-controls {
     grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .admin-productos-filtros-control {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .admin-productos-filtros-control label {
+    font-size: 13px;
   }
 
   .admin-productos-filtros-control input,
   .admin-productos-filtros-control select {
-    padding: 9px 11px;
-    font-size: 13px;
+    padding: 12px 14px;
+    font-size: 15px;
   }
 
   .admin-productos-filtros-buttons {
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
   }
 
   .admin-productos-filtros-btn {
     width: 100%;
-    padding: 9px 16px;
-    font-size: 13px;
+    padding: 12px 18px;
+    font-size: 15px;
   }
 
+  /* Ocultar tabla, mostrar tarjetas */
+  .admin-productos-table-wrapper {
+    display: none;
+  }
+
+  .admin-productos-cards {
+    display: block;
+    padding: 16px;
+  }
+
+  /* Paginación */
   .admin-productos-pagination {
     flex-wrap: wrap;
-    padding: 14px;
-    gap: 10px;
+    padding: 16px 12px;
+    gap: 12px;
   }
 
   .admin-productos-pagination-btn {
-    padding: 8px 14px;
-    font-size: 13px;
-    min-width: 90px;
+    padding: 12px 20px; /* Más grande para móvil */
+    font-size: 14px;
+    min-width: 100px;
   }
 
   .admin-productos-pagination-info {
-    font-size: 13px;
-  }
-
-  /* Tabla responsive - scroll horizontal */
-  .admin-productos-listado {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .admin-productos-table {
-    font-size: 12px;
-    min-width: 650px;
-  }
-
-  .admin-productos-table th,
-  .admin-productos-table td {
-    padding: 10px 12px;
-  }
-
-  .admin-productos-table-actions {
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .admin-productos-table-btn {
-    padding: 7px 12px;
-    font-size: 11px;
+    font-size: 14px;
     width: 100%;
-    min-width: 85px;
+    text-align: center;
+    order: -1; /* Poner arriba */
   }
 }
 
-/* Mobile */
+/* ========================================
+   RESPONSIVE - Móvil Pequeño (< 480px)
+   ======================================== */
+
 @media (max-width: 480px) {
   .admin-productos-main {
-    padding: 14px 10px;
+    padding: 16px 10px;
   }
 
   .admin-productos-h1 {
-    font-size: 18px;
-    margin-bottom: 14px;
+    font-size: 20px;
+    margin-bottom: 16px;
   }
 
   .admin-productos-alert {
-    padding: 10px 14px;
+    padding: 10px 12px;
     font-size: 12px;
   }
 
+  /* Formulario */
   .admin-productos-form {
-    padding: 14px;
+    padding: 16px 12px;
+    margin-bottom: 20px;
   }
 
   .admin-productos-form h2 {
@@ -578,7 +725,8 @@
   }
 
   .admin-productos-form-group {
-    gap: 10px;
+    gap: 12px;
+    margin-bottom: 14px;
   }
 
   .admin-productos-form-control label {
@@ -588,31 +736,22 @@
   .admin-productos-form-control input,
   .admin-productos-form-control select,
   .admin-productos-form-control textarea {
-    padding: 9px 10px;
-    font-size: 13px;
-  }
-
-  .admin-productos-form-buttons {
-    flex-direction: column;
-    gap: 8px;
+    padding: 11px 12px;
+    font-size: 14px;
   }
 
   .admin-productos-btn {
-    width: 100%;
-    padding: 10px 16px;
-    font-size: 13px;
+    padding: 13px 18px;
+    font-size: 14px;
   }
 
+  /* Filtros */
   .admin-productos-filtros {
-    padding: 12px;
+    padding: 14px 12px;
   }
 
   .admin-productos-filtros h2 {
     font-size: 15px;
-  }
-
-  .admin-productos-filtros-controls {
-    gap: 8px;
   }
 
   .admin-productos-filtros-control label {
@@ -621,71 +760,89 @@
 
   .admin-productos-filtros-control input,
   .admin-productos-filtros-control select {
-    padding: 8px 10px;
-    font-size: 12px;
-  }
-
-  .admin-productos-filtros-buttons {
-    flex-direction: column;
-    gap: 6px;
+    padding: 11px 12px;
+    font-size: 14px;
   }
 
   .admin-productos-filtros-btn {
-    width: 100%;
-    padding: 8px 14px;
+    padding: 11px 16px;
+    font-size: 14px;
+  }
+
+  /* Tarjetas más compactas */
+  .admin-productos-cards {
+    padding: 12px;
+  }
+
+  .admin-productos-card {
+    padding: 14px;
+    margin-bottom: 14px;
+  }
+
+  .admin-productos-card-title {
+    font-size: 15px;
+  }
+
+  .admin-productos-card-id {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+
+  .admin-productos-card-label {
     font-size: 12px;
   }
 
-  .admin-productos-listado {
-    margin-top: 16px;
+  .admin-productos-card-value {
+    font-size: 13px;
   }
 
-  .admin-productos-listado h2 {
-    font-size: 16px;
-    padding: 14px 16px;
-  }
-
-  .admin-productos-table {
-    font-size: 10px;
-    min-width: 580px;
-  }
-
-  .admin-productos-table th,
-  .admin-productos-table td {
-    padding: 7px 9px;
-  }
-
-  .admin-productos-table-actions {
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .admin-productos-table-btn {
-    width: 100%;
-    padding: 6px 10px;
-    font-size: 10px;
-    min-width: 75px;
-  }
-
-  .admin-productos-pagination {
-    padding: 10px;
+  .admin-productos-card-actions {
     gap: 8px;
   }
 
+  .admin-productos-card-btn {
+    padding: 11px 14px;
+    font-size: 13px;
+  }
+
+  /* Paginación */
+  .admin-productos-pagination {
+    padding: 12px 10px;
+    gap: 10px;
+  }
+
   .admin-productos-pagination-btn {
-    padding: 7px 12px;
-    font-size: 11px;
-    min-width: 80px;
+    padding: 11px 16px;
+    font-size: 13px;
+    min-width: 90px;
   }
 
   .admin-productos-pagination-info {
-    font-size: 11px;
+    font-size: 13px;
+  }
+
+  /* Preview de imagen más pequeña */
+  .admin-productos-preview-img {
+    max-height: 150px;
   }
 }
 
-/* Desktop */
+/* ========================================
+   Desktop Grande (> 1024px)
+   ======================================== */
+
 @media (min-width: 1025px) {
   .admin-productos-main {
     max-width: 1200px;
   }
+
+  /* Asegurar que tarjetas estén ocultas */
+  .admin-productos-cards {
+    display: none;
+  }
+
+  .admin-productos-table-wrapper {
+    display: block;
+  }
 }
+

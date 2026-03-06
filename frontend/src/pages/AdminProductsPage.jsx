@@ -556,69 +556,140 @@ export default function AdminProductsPage() {
             <p>⏳ Cargando productos...</p>
           </div>
         ) : (
-          <table className="admin-productos-table">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Stock</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
+          <>
+            {/* TABLA - Vista Desktop/Tablet */}
+            <div className="admin-productos-table-wrapper">
+              <table className="admin-productos-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
 
-            <tbody>
-              {productos.map((p) => (
-                <tr key={p.id_producto}>
-                  <td>{p.id_producto}</td>
-                  <td>{p.nombre}</td>
-                  <td>{Number(p.precio).toFixed(2)} €</td>
-                  <td>{p.stock} unidades</td>
-                  <td>
-                    <span
-                      className={
-                        p.activo
-                          ? "admin-productos-estado-activo"
-                          : "admin-productos-estado-inactivo"
-                      }
-                    >
-                      {p.activo ? "✓ Activo" : "✕ Inactivo"}
-                    </span>
-                  </td>
+                <tbody>
+                  {productos.map((p) => (
+                    <tr key={p.id_producto}>
+                      <td>{p.id_producto}</td>
+                      <td>{p.nombre}</td>
+                      <td>{Number(p.precio).toFixed(2)} €</td>
+                      <td>{p.stock} unidades</td>
+                      <td>
+                        <span
+                          className={
+                            p.activo
+                              ? "admin-productos-estado-activo"
+                              : "admin-productos-estado-inactivo"
+                          }
+                        >
+                          {p.activo ? "✓ Activo" : "✕ Inactivo"}
+                        </span>
+                      </td>
 
-                  <td>
-                    <div className="admin-productos-table-actions">
+                      <td>
+                        <div className="admin-productos-table-actions">
+                          <button
+                            type="button"
+                            className="admin-productos-table-btn admin-productos-table-btn-edit"
+                            onClick={() => editarProducto(p)}
+                          >
+                            ✎ Editar
+                          </button>
+                          <button
+                            type="button"
+                            className="admin-productos-table-btn admin-productos-table-btn-toggle"
+                            onClick={() => toggleEstado(p)}
+                          >
+                            {p.activo ? "Desactivar" : "Activar"}
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+
+                  {productos.length === 0 && (
+                    <tr>
+                      <td colSpan="6" style={{ textAlign: "center" }}>
+                        <div className="admin-productos-empty">
+                          No hay productos para mostrar.
+                        </div>
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+
+            {/* TARJETAS - Vista Móvil */}
+            <div className="admin-productos-cards">
+              {productos.length === 0 ? (
+                <div className="admin-productos-empty">
+                  No hay productos para mostrar.
+                </div>
+              ) : (
+                productos.map((p) => (
+                  <div key={p.id_producto} className="admin-productos-card">
+                    <div className="admin-productos-card-header">
+                      <h3 className="admin-productos-card-title">
+                        {p.nombre}
+                      </h3>
+                      <span className="admin-productos-card-id">#{p.id_producto}</span>
+                    </div>
+
+                    <div className="admin-productos-card-body">
+                      <div className="admin-productos-card-row">
+                        <span className="admin-productos-card-label">Precio:</span>
+                        <span className="admin-productos-card-value">
+                          {Number(p.precio).toFixed(2)} €
+                        </span>
+                      </div>
+
+                      <div className="admin-productos-card-row">
+                        <span className="admin-productos-card-label">Stock:</span>
+                        <span className="admin-productos-card-value">
+                          {p.stock} unidades
+                        </span>
+                      </div>
+
+                      <div className="admin-productos-card-row">
+                        <span className="admin-productos-card-label">Estado:</span>
+                        <span
+                          className={
+                            p.activo
+                              ? "admin-productos-estado-activo"
+                              : "admin-productos-estado-inactivo"
+                          }
+                        >
+                          {p.activo ? "✓ Activo" : "✕ Inactivo"}
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="admin-productos-card-actions">
                       <button
                         type="button"
-                        className="admin-productos-table-btn admin-productos-table-btn-edit"
+                        className="admin-productos-card-btn admin-productos-card-btn-edit"
                         onClick={() => editarProducto(p)}
                       >
                         ✎ Editar
                       </button>
                       <button
                         type="button"
-                        className="admin-productos-table-btn admin-productos-table-btn-toggle"
+                        className="admin-productos-card-btn admin-productos-card-btn-toggle"
                         onClick={() => toggleEstado(p)}
                       >
                         {p.activo ? "Desactivar" : "Activar"}
                       </button>
                     </div>
-                  </td>
-                </tr>
-              ))}
-
-              {productos.length === 0 && (
-                <tr>
-                  <td colSpan="6" style={{ textAlign: "center" }}>
-                    <div className="admin-productos-empty">
-                      No hay productos para mostrar.
-                    </div>
-                  </td>
-                </tr>
+                  </div>
+                ))
               )}
-            </tbody>
-          </table>
+            </div>
+          </>
         )}
       </div>
 
