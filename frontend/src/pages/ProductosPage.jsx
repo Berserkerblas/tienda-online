@@ -1,6 +1,6 @@
 // frontend/src/pages/ProductosPage.jsx
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { obtenerProductos } from "../services/productos.service";
 import ProductoCard from "../components/ProductoCard";
 import "./ProductosPage.css";
@@ -33,6 +33,7 @@ export default function ProductosPage() {
   const [total, setTotal] = useState(null);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState("");
+  const requestIdRef = useRef(0);
 
   // Construye los parámetros de búsqueda de forma optimizada
   // Evita parámetros vacíos enviando solo los necesarios
@@ -60,11 +61,16 @@ export default function ProductosPage() {
   // Efecto para cargar productos cada vez que cambian los parámetros de búsqueda
   useEffect(() => {
     async function cargar() {
+      const requestId = ++requestIdRef.current;
+
       try {
         setCargando(true);
         setError("");
 
         const data = await obtenerProductos(params);
+
+        // Evita condiciones de carrera: ignora respuestas de peticiones antiguas
+        if (requestId !== requestIdRef.current) return;
 
         // Normaliza el formato de respuesta del backend
         const lista = data.productos || (Array.isArray(data) ? data : []);
@@ -75,11 +81,13 @@ export default function ProductosPage() {
         const t = data.total;
         setTotal(t);
       } catch (err) {
+        if (requestId !== requestIdRef.current) return;
         console.error("Error al cargar productos:", err);
         setError("No se pudieron cargar los productos.");
         setProductos([]);
         setTotal(null);
       } finally {
+        if (requestId !== requestIdRef.current) return;
         setCargando(false);
       }
     }

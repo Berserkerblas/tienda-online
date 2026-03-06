@@ -105,12 +105,14 @@ const obtenerProductos = async ({
     const ordenPrecioNormalizado = String(orden_precio ?? '').toLowerCase();
 
     if (ordenPrecioNormalizado === 'asc') {
-      consulta += ` ORDER BY precio ASC`;  // De menor a mayor precio
+      // Orden estable: desempata por id_producto para evitar saltos entre páginas
+      consulta += ` ORDER BY precio ASC, id_producto DESC`;
     } else if (ordenPrecioNormalizado === 'desc') {
-      consulta += ` ORDER BY precio DESC`; // De mayor a menor precio
+      // Orden estable: desempata por id_producto para evitar saltos entre páginas
+      consulta += ` ORDER BY precio DESC, id_producto DESC`;
     } else {
       // Por defecto: productos más recientes primero
-      consulta += ` ORDER BY fecha_creacion DESC`;
+      consulta += ` ORDER BY fecha_creacion DESC, id_producto DESC`;
     }
 
     // Contar total de productos ANTES de aplicar LIMIT/OFFSET
