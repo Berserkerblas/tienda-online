@@ -311,16 +311,18 @@
   .productos-pagination {
     padding: 1rem;
     gap: 6px;
+    justify-content: center;
   }
 
   .productos-pagination-btn {
-    padding: 0.55rem 0.8rem;
-    font-size: 0.8rem;
-    min-width: 70px;
+    padding: 0.65rem 0.9rem;
+    font-size: 0.9rem;
+    min-width: 60px;
+    font-weight: 600;
   }
 
   .productos-pagination-info {
-    font-size: 0.85rem;
+    display: none;
   }
 }
 
