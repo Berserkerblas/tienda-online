@@ -487,20 +487,40 @@
 
   .admin-productos-pagination {
     flex-wrap: wrap;
+    padding: 16px;
+  }
+
+  .admin-productos-pagination-btn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  /* Tabla responsive - scroll horizontal */
+  .admin-productos-listado {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   .admin-productos-table {
-    font-size: 12px;
+    font-size: 11px;
+    min-width: 600px;
   }
 
   .admin-productos-table th,
   .admin-productos-table td {
-    padding: 12px 14px;
+    padding: 8px 10px;
+  }
+
+  .admin-productos-table-actions {
+    flex-direction: column;
+    gap: 4px;
   }
 
   .admin-productos-table-btn {
     padding: 6px 10px;
-    font-size: 11px;
+    font-size: 10px;
+    width: 100%;
+    min-width: 80px;
   }
 }
 
@@ -511,10 +531,15 @@
 
   .admin-productos-h1 {
     font-size: 20px;
+    margin-bottom: 16px;
   }
 
   .admin-productos-form {
     padding: 16px;
+  }
+
+  .admin-productos-form h2 {
+    font-size: 18px;
   }
 
   .admin-productos-filtros {
@@ -532,14 +557,37 @@
   }
 
   .admin-productos-table {
-    font-size: 11px;
+    font-size: 10px;
+    min-width: 550px;
+  }
+
+  .admin-productos-table th,
+  .admin-productos-table td {
+    padding: 6px 8px;
   }
 
   .admin-productos-table-actions {
     flex-direction: column;
+    gap: 4px;
   }
 
   .admin-productos-table-btn {
     width: 100%;
+    padding: 5px 8px;
+    font-size: 9px;
+    min-width: 70px;
+  }
+
+  .admin-productos-alert {
+    padding: 12px 16px;
+    font-size: 12px;
+  }
+
+  .admin-productos-pagination {
+    padding: 12px;
+  }
+
+  .admin-productos-pagination-info {
+    font-size: 12px;
   }
 }

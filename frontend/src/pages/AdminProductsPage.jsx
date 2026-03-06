@@ -301,7 +301,10 @@ export default function AdminProductsPage() {
     if (!confirmar) return;
 
     try {
-      await eliminarProducto(producto.id_producto);
+      console.log('Intentando eliminar producto:', producto.id_producto);
+      const respuesta = await eliminarProducto(producto.id_producto);
+      console.log('Producto eliminado exitosamente:', respuesta);
+      
       setOkMsg(`✓ Producto "${producto.nombre}" eliminado correctamente.`);
       
       // Si estamos en una página vacía tras eliminar, volver atrás
@@ -313,6 +316,8 @@ export default function AdminProductsPage() {
       }
     } catch (error) {
       console.error("Error eliminando producto", error);
+      console.error("Detalles del error:", error.response);
+      
       setErrorMsg(
         error.response?.data?.message || error.message || "Error eliminando producto."
       );
