@@ -291,12 +291,6 @@ export default function ProductosPage() {
                 >
                   »
                 </button>
-
-                {totalPaginas && pagina === totalPaginas && (
-                  <span className="productos-pagination-last">
-                    (Última página)
-                  </span>
-                )}
               </div>
             )}
           </>

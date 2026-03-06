@@ -207,8 +207,8 @@
   transform: translateY(0);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* Tablet */
+@media (min-width: 481px) and (max-width: 1024px) {
   .carrito-main {
     padding: 1.5rem 1rem;
   }
@@ -245,6 +245,7 @@
   }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
   .carrito-main {
     padding: 1rem;
@@ -269,24 +270,14 @@
     width: 120px;
     height: 120px;
   }
-}
-  }
-
-  .carrito-btn-vaciar {
-    padding: 0.7rem 1rem;
-    font-size: 0.9rem;
-  }
-
-  .carrito-title {
-    font-size: 1.5rem;
-  }
-
-  .carrito-item-imagen {
-    width: 120px;
-    height: 120px;
-  }
-
   .carrito-total p {
     font-size: 1.2rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .carrito-main {
+    max-width: 1000px;
   }
 }

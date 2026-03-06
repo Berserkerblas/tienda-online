@@ -279,8 +279,8 @@
   text-align: right;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* Tablet */
+@media (min-width: 481px) and (max-width: 1024px) {
   .mispedidos-main {
     padding: 1.5rem 1rem;
   }
@@ -326,6 +326,7 @@
   }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
   .mispedidos-main {
     padding: 1rem;
@@ -362,8 +363,7 @@
   .mispedidos-pagination-btn {
     padding: 0.5rem 0.8rem;
     font-size: 0.85rem;
-    min-width: 35px;
-    gap: 0.8rem;
+    min-width: 64px;
   }
 
   .mispedidos-card-total {
@@ -377,12 +377,6 @@
     font-size: 1.2rem;
   }
 
-  .mispedidos-card-link {
-    width: 100%;
-    text-align: center;
-    padding: 0.7rem;
-  }
-
   .mispedidos-vacio {
     padding: 2rem 1rem;
   }
@@ -391,5 +385,12 @@
     width: 100%;
     display: block;
     padding: 0.75rem 1.5rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .mispedidos-main {
+    max-width: 1000px;
   }
 }

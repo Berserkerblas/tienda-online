@@ -134,15 +134,15 @@
 .detalle-cantidad-label > label {
   font-weight: 600;
   color: #1a1a1a;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
 }
 
 .detalle-cantidad-input {
   width: 100px;
-  padding: 0.7rem 0.9rem;
+  padding: 0.55rem 0.75rem;
   border: 2px solid #ddd;
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 0.92rem;
   font-weight: 600;
   text-align: center;
   transition: all 0.3s ease;
@@ -232,8 +232,8 @@
   transform: translateY(-2px);
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
+/* Tablet */
+@media (min-width: 481px) and (max-width: 1024px) {
   .detalle-image-container {
     width: 350px;
     height: 350px;
@@ -242,9 +242,7 @@
   .detalle-content {
     gap: 1.5rem;
   }
-}
 
-@media (max-width: 768px) {
   .detalle-main {
     padding: 1.5rem 1rem;
   }
@@ -284,6 +282,7 @@
   }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
   .detalle-main {
     padding: 1rem;
@@ -307,8 +306,14 @@
     width: 100%;
   }
 
+  .detalle-cantidad-label > label {
+    font-size: 0.82rem;
+  }
+
   .detalle-cantidad-input {
     width: 100%;
+    font-size: 0.86rem;
+    padding: 0.5rem 0.7rem;
   }
 
   .detalle-btn-añadir {
@@ -319,5 +324,12 @@
 
   .detalle-precio {
     font-size: 1.5rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .detalle-main {
+    max-width: 1100px;
   }
 }

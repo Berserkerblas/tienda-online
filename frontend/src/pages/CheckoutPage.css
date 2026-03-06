@@ -260,8 +260,8 @@
   color: #1a1a1a;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* Tablet */
+@media (min-width: 481px) and (max-width: 1024px) {
   .checkout-main {
     padding: 1.5rem 1rem;
   }
@@ -299,6 +299,7 @@
   }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
   .checkout-main {
     padding: 1rem;
@@ -344,6 +345,13 @@
   .checkout-back-link {
     padding: 0.6rem 1rem;
     font-size: 0.85rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .checkout-main {
+    max-width: 900px;
   }
 }
 

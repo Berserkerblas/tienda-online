@@ -152,8 +152,8 @@
   font-style: italic;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* Tablet */
+@media (min-width: 481px) and (max-width: 1024px) {
   .hero-overlay {
     padding: 2rem 1.5rem;
     background: linear-gradient(
@@ -187,6 +187,7 @@
   }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
   .hero-overlay {
     padding: 1.5rem 1rem;
@@ -211,13 +212,14 @@
     width: 100%;
     max-width: 300px;
     padding: 0.7rem 1.2rem;
-    font-size: 0.9rem;
+    font-size: 0.88rem;
+    text-align: center;
   }
 }
 
-  .hero-btn-primary,
-  .hero-btn-secondary {
-    text-align: center;
-    width: 100%;
+/* Desktop */
+@media (min-width: 1025px) {
+  .hero-content {
+    max-width: 620px;
   }
 }

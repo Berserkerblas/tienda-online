@@ -439,8 +439,8 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
+/* Tablet */
+@media (min-width: 481px) and (max-width: 1024px) {
   .admin-productos-main {
     padding: 20px 12px;
   }
@@ -552,6 +552,7 @@
   }
 }
 
+/* Mobile */
 @media (max-width: 480px) {
   .admin-productos-main {
     padding: 14px 10px;
@@ -679,5 +680,12 @@
 
   .admin-productos-pagination-info {
     font-size: 11px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+  .admin-productos-main {
+    max-width: 1200px;
   }
 }
